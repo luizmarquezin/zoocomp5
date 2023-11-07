@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="index.css">
+
+<html>
+<head>
+    <title>Zoológico</title>
+</head>
+<body>
+    <h1>Bem-vindo ao Nosso Zoológico</h1>
+
+    <h2>Animais</h2>
+    <select id="animalSelect">
+        <option value="leoes">Leões</option>
+        <option value="elefantes">Elefantes</option>
+        <option value="girafas">Girafas</option>
+        <option value="jacaré">jacaré</option>
+        <option value="pinguins">Pinguins</option>
+    </select>
+
+    <h2>Quantidade de Animais por Espécie</h2>
+    <ul>
+        <li><strong>Leões:</strong> 5</li>
+        <li><strong>Elefantes:</strong> 5</li>
+        <li><strong>Girafas:</strong> 8</li>
+        <li><strong>jacaré:</strong> 6</li>
+        <li><strong>Pinguins:</strong> 15</li>
+    </ul>
+
+    <h2>Alimentação</h2>
+    <p>Ração por dia: <span id="racaoPorDia"></span> kg</p>
+    <p>Ração por mês: <span id="racaoPorMes"></span> kg</p>
+
+    <h2>Cálculo de Gastos</h2>
+    <p>Total de gastos mensais com ração: R$
+        <span id="totalGastos"></span>
+    </p>
+
+    <script>
+        // Valores fictícios
+        const racao = {
+            leoes: 5,
+            elefantes: 30,
+            girafas: 10,
+            jacaré: 7,
+            pinguins: 2
+        };
+
+        // Função para calcular gastos com base na seleção
+        function calcularGastos() {
+            const selectedAnimal = document.getElementById("animalSelect").value;
+            const racaoPorDia = racao[selectedAnimal];
+            const racaoPorMes = racaoPorDia * 30;
+            const gastosMensais = racaoPorMes * 5.0; // Valor fictício de ração (por kg)
+            
+            document.getElementById("racaoPorDia").textContent = racaoPorDia;
+            document.getElementById("racaoPorMes").textContent = racaoPorMes;
+            document.getElementById("totalGastos").textContent = (gastosMensais).toFixed(2);
+        }
+
+        // Definir um ouvinte de evento para detectar a mudança na seleção
+        document.getElementById("animalSelect").addEventListener("change", calcularGastos);
+
+        // Inicialmente, calcular gastos com o animal selecionado
+        calcularGastos();
+    </script>
+</body>
+</html>
+
+
+
+/* Estilo para o título principal */
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+
+/* Estilo para os títulos das seções */
+h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+/* Estilo para o menu suspenso de seleção de animais */
+#animalSelect {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+/* Estilo para a lista de quantidade de animais por espécie */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+/* Estilo para os parágrafos de informações */
+p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* Estilo para as informações calculadas */
+span {
+    font-weight: bold;
+    color: #0070cc;
+}
+
+/* Estilo para o resultado do cálculo de gastos */
+#totalGastos {
+    color: #e53935; /* Vermelho */
+}
+/* Estilos para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #8B4513; /* Marrom (cor de terra) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+/* Estilo para o título principal */
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilo para os títulos das seções */
+h2 {
+    font-size: 20px;
+    color: #0070cc;
+}
+
+/* Estilo para o menu suspenso de seleção de animais */
+#animalSelect {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #0070cc;
+    border-radius: 5px;
+}
+
+/* Estilo para a lista de quantidade de animais por espécie */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para as informações calculadas */
+span {
+    font-weight: bold;
+    color: #0070cc;
+}
+
+/* Estilo para o resultado do cálculo de gastos */
+#totalGastos {
+    color: #e53935; /* Vermelho */
+}
+/* Estilos para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ff00003f; /* Cinza Claro */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+/* Restante do CSS permanece inalterado */
+
